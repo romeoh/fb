@@ -52,6 +52,25 @@ function goLink(){
 		message = '커피한잔 마실래요?';
 	}
 	
+
+	// calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'YOUR URL HERE',
+          link: 'https://developers.facebook.com/docs/reference/dialogs/',
+          picture: 'http://fbrell.com/f8.jpg',
+          name: 'Facebook Dialogs',
+          caption: 'Reference Documentation',
+          description: 'Using Dialogs to interact with users.'
+        };
+
+        function callback(response) {
+          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+        }
+
+        FB.ui(obj, callback);
+
+        
 	/*url += 'https://www.facebook.com/dialog/feed?'
 	url += 'app_id=273220256148626&'
 	url += 'link=https://developers.facebook.com/docs/reference/dialogs/&'
