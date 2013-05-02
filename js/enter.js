@@ -57,11 +57,11 @@ function goLink(){
 	var obj = {
 		method: 'feed',
 		redirect_uri: 'YOUR URL HERE',
-		link: 'https://developers.facebook.com/docs/reference/dialogs/',
+		link: 'http://romeoh.github.io/kakaoStory/html/relationCouple.html',
 		picture: 'http://romeoh.github.io/kakaoStory/img/relation.jpg',
-		name: 'Facebook Dialogs',
-		caption: 'Reference Documentation',
-		description: 'Using Dialogs to interact with users.'
+		name: '우리부부 전생',
+		caption: '우리 부부는 전생에 무슨 관계였나?',
+		description: '나는 내 아내를 매일 때리는 동네 깡패였습니다.'
 	};
 
 	function callback(response) {
