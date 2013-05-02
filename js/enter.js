@@ -54,23 +54,28 @@ function goLink(){
 	
 
 	// calling the API ...
-        var obj = {
-          method: 'feed',
-          redirect_uri: 'YOUR URL HERE',
-          link: 'https://developers.facebook.com/docs/reference/dialogs/',
-          picture: 'http://fbrell.com/f8.jpg',
-          name: 'Facebook Dialogs',
-          caption: 'Reference Documentation',
-          description: 'Using Dialogs to interact with users.'
-        };
+	var obj = {
+		method: 'feed',
+		redirect_uri: 'YOUR URL HERE',
+		link: 'https://developers.facebook.com/docs/reference/dialogs/',
+		picture: 'http://romeoh.github.io/kakaoStory/img/relation.jpg',
+		name: 'Facebook Dialogs',
+		caption: 'Reference Documentation',
+		description: 'Using Dialogs to interact with users.'
+	};
 
-        function callback(response) {
-          document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-        }
+	function callback(response) {
+		document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+	}
 
-        FB.ui(obj, callback);
+/*
+http://www.facebook.com/sharer/sharer.php?
+s=100&
+p%5Btitle%5D=titlehere&amp;p%5Burl%5D=http%3A%2F%2Fwww.yoururlhere.com&amp;p%5Bsummary%5D=yoursummaryhere&amp;p%5Bimages%5D%5B0%5D=https://www.google.com/images/srpr/logo3w.png
+*/
 
-        
+	FB.ui(obj, callback);
+
 	/*url += 'https://www.facebook.com/dialog/feed?'
 	url += 'app_id=273220256148626&'
 	url += 'link=https://developers.facebook.com/docs/reference/dialogs/&'
