@@ -59,9 +59,9 @@ function goLink(){
 		redirect_uri: 'YOUR URL HERE',
 		link: 'https://developers.facebook.com/docs/reference/dialogs/',
 		picture: 'http://romeoh.github.io/kakaoStory/img/relation.jpg',
-		name: 'fname',
-		caption: 'fcaption',
-		description: 'fdes'
+		name: '우리부부 전생',
+		caption: '우리 부부는 전생에 무슨 관계였나?',
+		description: '나는 내 아내를 매일 때리는 동네 깡패였습니다.'
 	};
 
 	function callback(response) {
