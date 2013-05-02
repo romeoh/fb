@@ -65,7 +65,7 @@ function goLink(){
 	};
 
 	function callback(response) {
-		document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+		//document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
 	}
 
 /*
