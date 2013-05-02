@@ -57,7 +57,7 @@ function goLink(){
 	var obj = {
 		method: 'feed',
 		redirect_uri: 'YOUR URL HERE',
-		link: 'http://romeoh.github.io/kakaoStory/html/relationCouple.html',
+		link: 'https://developers.facebook.com/docs/reference/dialogs/',
 		picture: 'http://romeoh.github.io/kakaoStory/img/relation.jpg',
 		name: '우리부부 전생',
 		caption: '우리 부부는 전생에 무슨 관계였나?',
