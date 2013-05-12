@@ -100,8 +100,8 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	url += 'description=' + encodeURIComponent(description) + '&'
 	url += 'redirect_uri=' + redirect
 	
-	//window.location.href = url
-	window.open(url)
+	top.location.href = url
+	//window.open(url)
 	console.log(url)
 
 	//window.open(url)
