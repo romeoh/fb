@@ -24,7 +24,7 @@ function goLink(){
 	var  sexType
 		,url = ''
 	
-	FB.init({appId: "273220256148626", status: true, cookie: true});
+	//FB.init({appId: "273220256148626", status: true, cookie: true});
 
 
 	//idx < 10 ? idx = '0' + idx : idx
@@ -81,16 +81,26 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 
 */
 
-	FB.ui(obj, callback);
+	//FB.ui(obj, callback);
+	fburl = 'https://www.facebook.com/dialog/feed'
+	appId = '397951356944916'
+	link = 'http://romeoh.github.io/fb/html/test.html'
+	pic = 'http://romeoh.github.io/kakaoStory/img/alpha0.jpg'
+	appName = 'myName'
+	catption = '백국경'
+	description = 'myDescript'
+	redirect = 'http://romeoh.github.io/fb/html/test.html'
 
-	url += 'https://www.facebook.com/dialog/feed?'
-	url += 'app_id=397951356944916&'
-	url += 'link=http://romeoh.github.io/fb/html/test.html&'
-	url += 'picture=http://fbrell.com/f8.jpg&'
-	url += 'name=Facebook%20Dialogs&'
-	url += 'caption=Reference%20Documentation&'
-	url += 'description=Using%20Dialogs%20to%20interact%20with%20users.&'
-	url += 'redirect_uri=http://romeoh.github.io/fb/html/test.html'
+	url += fburl + '?'
+	url += 'app_id=' + appId + '&'
+	url += 'link=' + link + '&'
+	url += 'picture=' + pic + '&'
+	url += 'name=' + encodeURIComponent(appName) + '&'
+	url += 'caption=' + encodeURIComponent(catption) + '&'
+	url += 'description=' + encodeURIComponent(description) + '&'
+	url += 'redirect_uri=' + redirect
+	
+	window.location.href = url
 	console.log(url)
 
 	//window.open(url)
