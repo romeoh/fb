@@ -98,7 +98,6 @@ ad
 ad
 </div>
 
-<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="../js/test.js"></script>
 <script type="text/javascript">
@@ -114,33 +113,5 @@ ad
   })();
 
 </script>
-
-<script> 
-      FB.init({appId: "397951356944916", status: true, cookie: true});
-
-      function postToFeed() {
-
-        // calling the API ...
-        var obj = {
-          method: 'feed',
-          redirect_uri: 'http://romeoh.github.io/fb/html/test.html',
-          link: 'http://romeoh.github.io/fb/html/test.html',
-          picture: 'http://romeoh.github.io/kakaoStory/img/alpha0.jpg',
-          name: 'Facebook Dialogs',
-          caption: 'Reference Documentation',
-          description: 'Using Dialogs to interact with users.'
-        };
-
-        function callback(response) {
-          alert(response['post_id'])
-          //document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-        }
-
-        FB.ui(obj, callback);
-      }
-    
-    </script>
-
-
 </body>
 </html>
