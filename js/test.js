@@ -85,7 +85,7 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	
 
 	fburl = 'https://www.facebook.com/dialog/feed'
-	appId = '397951356944916'
+	appId = '519730578083610'
 	link = 'http://romeoh.github.io/fb/html/test.html'
 	pic = 'http://romeoh.github.io/kakaoStory/img/alpha0.jpg'
 	appName = 'myName'
