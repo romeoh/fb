@@ -82,6 +82,8 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 */
 
 	//FB.ui(obj, callback);
+	
+
 	fburl = 'https://m.facebook.com/dialog/feed'
 	appId = '397951356944916'
 	link = 'http://romeoh.github.io/fb/html/test.html'
@@ -106,7 +108,6 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	//window.open(url)
 	console.log(url)
 
-	//window.open(url)
 }
 
 // 카톡
