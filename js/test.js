@@ -89,6 +89,7 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	appName = 'myName'
 	catption = '백국경'
 	description = 'myDescript'
+	display = 'touch'
 	redirect = 'http://romeoh.github.io/fb/html/test.html'
 
 	url += fburl + '?'
@@ -98,6 +99,7 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	url += 'name=' + encodeURIComponent(appName) + '&'
 	url += 'caption=' + encodeURIComponent(catption) + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
+	url += 'display=' + display + '&'
 	url += 'redirect_uri=' + redirect
 	
 	top.location.href = url
