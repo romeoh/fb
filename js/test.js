@@ -24,8 +24,6 @@ function goLink(){
 	var  sexType
 		,url = ''
 	
-	//FB.init({appId: "273220256148626", status: true, cookie: true});
-
 
 	//idx < 10 ? idx = '0' + idx : idx
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
@@ -53,37 +51,6 @@ function goLink(){
 	}
 	
 
-	// calling the API ...
-	var obj = {
-		method: 'feed',
-		redirect_uri: 'http://romeoh.github.io/fb/html/test.html',
-		link: 'http://romeoh.github.io/fb/html/test.html',
-		picture: 'http://romeoh.github.io/kakaoStory/img/relation.jpg',
-		name: '우리부부 전생',
-		caption: '우리 부부는 전생에 무슨 관계였나?',
-		description: '나는 내 아내를 매일 때리는 동네 깡패였습니다.'
-	};
-
-	function callback(response) {
-		
-		//alert(response['post_id'])
-		//document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-	}
-
-/*
-http://www.facebook.com/sharer/sharer.php?
-s=100&
-p%5Btitle%5D=titlehere&amp;p%5Burl%5D=http%3A%2F%2Fwww.yoururlhere.com&amp;p%5Bsummary%5D=yoursummaryhere&amp;p%5Bimages%5D%5B0%5D=https://www.google.com/images/srpr/logo3w.png
-
-https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[images][0]=http://www.yporqueno.es/blog/wp-content/uploads/2011/01/compartir_facebook.gif&p[title]=%EB%84%A4%EC%9D%B4%EB%85%84&p[summary]=%EB%84%A4%EC%9D%B4%EB%85%84%EC%9D%84%20%EA%B3%B5%EC%9C%A0%ED%95%A8
-<meta name="title" content="First Title">
-<meta name="description" content="First Description">
-
-*/
-
-	//FB.ui(obj, callback);
-	
-
 	fburl = 'https://www.facebook.com/dialog/feed'
 	appId = '519730578083610'
 	link = 'http://romeoh.github.io/fb/html/test.html'
@@ -105,8 +72,6 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	url += 'redirect_uri=' + redirect
 	
 	top.location.href = url
-	//window.open(url)
-	console.log(url)
 
 }
 
