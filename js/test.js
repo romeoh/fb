@@ -84,7 +84,7 @@ https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[i
 	//FB.ui(obj, callback);
 	
 
-	fburl = 'https://m.facebook.com/dialog/feed'
+	fburl = 'https://www.facebook.com/dialog/feed'
 	appId = '397951356944916'
 	link = 'http://romeoh.github.io/fb/html/test.html'
 	pic = 'http://romeoh.github.io/kakaoStory/img/alpha0.jpg'
