@@ -56,8 +56,8 @@ function goLink(){
 	// calling the API ...
 	var obj = {
 		method: 'feed',
-		redirect_uri: 'YOUR URL HERE',
-		link: 'https://developers.facebook.com/docs/reference/dialogs/',
+		redirect_uri: 'http://romeoh.github.io/fb/html/test.html',
+		link: 'http://romeoh.github.io/fb/html/test.html',
 		picture: 'http://romeoh.github.io/kakaoStory/img/relation.jpg',
 		name: '우리부부 전생',
 		caption: '우리 부부는 전생에 무슨 관계였나?',
@@ -65,6 +65,8 @@ function goLink(){
 	};
 
 	function callback(response) {
+		
+		//alert(response['post_id'])
 		//document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
 	}
 
@@ -72,19 +74,24 @@ function goLink(){
 http://www.facebook.com/sharer/sharer.php?
 s=100&
 p%5Btitle%5D=titlehere&amp;p%5Burl%5D=http%3A%2F%2Fwww.yoururlhere.com&amp;p%5Bsummary%5D=yoursummaryhere&amp;p%5Bimages%5D%5B0%5D=https://www.google.com/images/srpr/logo3w.png
+
+https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://www.naver.com&p[images][0]=http://www.yporqueno.es/blog/wp-content/uploads/2011/01/compartir_facebook.gif&p[title]=%EB%84%A4%EC%9D%B4%EB%85%84&p[summary]=%EB%84%A4%EC%9D%B4%EB%85%84%EC%9D%84%20%EA%B3%B5%EC%9C%A0%ED%95%A8
+<meta name="title" content="First Title">
+<meta name="description" content="First Description">
+
 */
 
 	FB.ui(obj, callback);
 
-	/*url += 'https://www.facebook.com/dialog/feed?'
-	url += 'app_id=273220256148626&'
-	url += 'link=https://developers.facebook.com/docs/reference/dialogs/&'
+	url += 'https://www.facebook.com/dialog/feed?'
+	url += 'app_id=397951356944916&'
+	url += 'link=http://romeoh.github.io/fb/html/test.html&'
 	url += 'picture=http://fbrell.com/f8.jpg&'
 	url += 'name=Facebook%20Dialogs&'
 	url += 'caption=Reference%20Documentation&'
 	url += 'description=Using%20Dialogs%20to%20interact%20with%20users.&'
-	url += 'redirect_uri=http://romeoh.github.io'
-	*/
+	url += 'redirect_uri=http://romeoh.github.io/fb/html/test.html'
+	console.log(url)
 
 	//window.open(url)
 }
