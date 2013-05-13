@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {background:#3b589c; margin:0}
-button {background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b4bed5), to(#5972ac)); border-radius: 10px;width:260px;height:40px;box-shadow: rgba(0, 0, 0, 0.496094) 0px 1px 1px 0px, rgba(0, 0, 0, 0.0976563) 0px -1px 0px 0px;border:0px;font-size:1.25em;text-align: center; line-height: 40px; margin:0px auto; color:#edeff4}
+button {background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6375a9), to(#324581)); border-radius: 10px;width:260px;height:40px;box-shadow: rgba(0, 0, 0, 0.496094) 0px 1px 1px 0px, rgba(0, 0, 0, 0.0976563) 0px -1px 0px 0px;border:0px;font-size:1.25em;text-align: center; line-height: 40px; margin:0px auto; color:#edeff4}
 .wrap {background:#f5f7fa; border-radius:30px; padding:20px; margin:10px}
 h1 {font-size: 22px; text-align:center;}
 .info {font-size:18px; text-align:center; padding:0 5px; line-height:20px;}

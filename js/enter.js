@@ -3,11 +3,10 @@ var  userName = document.querySelector('#userName')
 	,girl = document.getElementById('girl')
 	,boySelect = document.querySelector('#boyBox a')
 	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
+	,btnFb = document.querySelector('#btnFb')
 	,dataMale, dataFemale
 
-btnStory.addEventListener('click', goLink, false);
+btnFb.addEventListener('click', goLink, false);
 boySelect.addEventListener('click', function(){
 	boySelect.className = 'checked';
 	girlSelect.className = '';
