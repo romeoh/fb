@@ -8,7 +8,6 @@ var  userName = document.querySelector('#userName')
 	,dataMale, dataFemale
 
 btnStory.addEventListener('click', goLink, false);
-btnKakao.addEventListener('click', executeURLLink, false);
 boySelect.addEventListener('click', function(){
 	boySelect.className = 'checked';
 	girlSelect.className = '';
