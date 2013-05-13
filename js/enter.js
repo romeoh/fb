@@ -52,12 +52,12 @@ function goLink(){
 	fburl = 'https://www.facebook.com/dialog/feed'
 	appId = '519730578083610'
 	link = 'http://romeoh.github.io/fb/html/test.html'
-	pic = 'http://romeoh.github.io/kakaoStory/img/alpha0.jpg'
+	pic = 'http://romeoh.github.io/fb/img/alpha0.jpg'
 	appName = 'myName'
 	catption = '백국경'
 	description = 'myDescript'
 	display = 'touch'
-	redirect = 'http://romeoh.github.io/fb/html/test.html'
+	//redirect = 'http://romeoh.github.io/fb/html/test.html'
 
 	url += fburl + '?'
 	url += 'app_id=' + appId + '&'
@@ -67,7 +67,7 @@ function goLink(){
 	url += 'caption=' + encodeURIComponent(catption) + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
 	url += 'display=' + display + '&'
-	url += 'redirect_uri=' + redirect
+	url += 'redirect_uri=' + link
 	
 	top.location.href = url
 
