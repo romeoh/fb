@@ -20,7 +20,7 @@ girlSelect.addEventListener('click', function(){
 // go Link
 function goLink(){
 	var  sexType
-		,data = getRand(dataMale)
+		,data
 		,url = ''
 
 	//idx < 10 ? idx = '0' + idx : idx
@@ -36,12 +36,14 @@ function goLink(){
 	
 	//남자를 선택함
 	if (boySelect.className == 'checked') {
+		data = getRand(dataFemail)
 		resultName = data['name']
 		resultPhoto = data['photo']
 		message = '커피한잔 사주실래요?';
 	
 	// 여자를 선택함
 	} else if (girlSelect.className == 'checked') {
+		data = getRand(dataMale)
 		resultName = data['name']
 		resultPhoto = data['photo']
 		message = '커피한잔 마실래요?';
