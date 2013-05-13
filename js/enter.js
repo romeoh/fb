@@ -21,7 +21,7 @@ girlSelect.addEventListener('click', function(){
 function goLink(){
 	var  sexType
 		,data = getRand(dataMale)
-	
+		,url = ''
 
 	//idx < 10 ? idx = '0' + idx : idx
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
