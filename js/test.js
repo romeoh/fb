@@ -56,6 +56,7 @@ function goLink(){
 	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
 	appName = '커피한잔 하실래요?'
 	caption = resultName + '씨로부터 메세지'
+	to = 'minkeypaek@gmail.com' 
 	description = userName.value + '님 ' + message
 	display = 'touch'
 	//redirect = 'http://romeoh.github.io/fb/html/test.html'
@@ -66,6 +67,7 @@ function goLink(){
 	url += 'picture=' + pic + '&'
 	url += 'name=' + encodeURIComponent(appName) + '&'
 	url += 'caption=' + encodeURIComponent(caption) + '&'
+	url += 'to=' + to + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
 	//url += 'display=' + display + '&'
 	url += 'redirect_uri=' + link
