@@ -67,8 +67,8 @@ function goLink(){
 	url += 'name=' + encodeURIComponent(appName) + '&'
 	url += 'caption=' + encodeURIComponent(caption) + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
-	url += 'display=' + display + '&'
-	url += 'redirect_uri=' + link
+	url += 'display=' + display
+	//url += 'redirect_uri=' + link
 	
 	top.location.href = url
 
