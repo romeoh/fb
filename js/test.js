@@ -3,12 +3,10 @@ var  userName = document.querySelector('#userName')
 	,girl = document.getElementById('girl')
 	,boySelect = document.querySelector('#boyBox a')
 	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
+	,btnFb = document.querySelector('#btnFb')
 	,dataMale, dataFemale
 
-btnStory.addEventListener('click', goLink, false);
-btnKakao.addEventListener('click', executeURLLink, false);
+btnFb.addEventListener('click', goLink, false);
 boySelect.addEventListener('click', function(){
 	boySelect.className = 'checked';
 	girlSelect.className = '';
@@ -22,8 +20,8 @@ girlSelect.addEventListener('click', function(){
 // go Link
 function goLink(){
 	var  sexType
+		,data
 		,url = ''
-	
 
 	//idx < 10 ? idx = '0' + idx : idx
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
@@ -38,53 +36,42 @@ function goLink(){
 	
 	//남자를 선택함
 	if (boySelect.className == 'checked') {
-		resultName = getRand(dataMale)['name']
-		resultPhoto = getRand(dataMale)['photo']
+		data = getRand(dataMale)
+		resultName = data['name']
+		resultPhoto = data['photo']
 		message = '커피한잔 사주실래요?';
 	
 	// 여자를 선택함
 	} else if (girlSelect.className == 'checked') {
-		resultName = getRand(dataFemale)['name']
-		resultPhoto = getRand(dataFemale)['photo']
-		message = '커피한잔 사주실래요?';
+		data = getRand(dataFemale)
+		resultName = data['name']
+		resultPhoto = data['photo']
 		message = '커피한잔 마실래요?';
 	}
 	
 
 	fburl = 'https://www.facebook.com/dialog/feed'
 	appId = '519730578083610'
-	link = 'http://romeoh.github.io/fb/html/test.html'
-	pic = 'http://romeoh.github.io/kakaoStory/img/alpha0.jpg'
-	appName = 'myName'
-	catption = '백국경'
-	description = 'myDescript'
+	link = 'http://romeoh.github.io/fb/html/enter.html'
+	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
+	appName = '커피한잔 하실래요?'
+	caption = resultName + '씨로부터 메세지'
+	description = userName.value + '님 ' + message
 	display = 'touch'
-	redirect = 'http://romeoh.github.io/fb/html/test.html'
+	//redirect = 'http://romeoh.github.io/fb/html/test.html'
 
 	url += fburl + '?'
 	url += 'app_id=' + appId + '&'
 	url += 'link=' + link + '&'
 	url += 'picture=' + pic + '&'
 	url += 'name=' + encodeURIComponent(appName) + '&'
-	url += 'caption=' + encodeURIComponent(catption) + '&'
+	url += 'caption=' + encodeURIComponent(caption) + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
-	url += 'display=' + display + '&'
-	url += 'redirect_uri=' + redirect
+	//url += 'display=' + display + '&'
+	url += 'redirect_uri=' + link
 	
 	top.location.href = url
 
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/RPVB5",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "연예인과 커피한잔",
-		type: "link"
-	});
 }
 
 function getRand(data){
