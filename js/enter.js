@@ -44,7 +44,6 @@ function goLink(){
 	} else if (girlSelect.className == 'checked') {
 		resultName = getRand(dataFemale)['name']
 		resultPhoto = getRand(dataFemale)['photo']
-		message = '커피한잔 사주실래요?';
 		message = '커피한잔 마실래요?';
 	}
 	
@@ -52,10 +51,10 @@ function goLink(){
 	fburl = 'https://www.facebook.com/dialog/feed'
 	appId = '519730578083610'
 	link = 'http://romeoh.github.io/fb/html/test.html'
-	pic = 'http://romeoh.github.io/fb/img/alpha0.jpg'
-	appName = 'myName'
-	catption = '백국경'
-	description = 'myDescript'
+	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
+	appName = '커피한잔 하실래요?'
+	caption = resultName + '씨로부터 메세지'
+	description = userName.value + '님 ' + message
 	display = 'touch'
 	//redirect = 'http://romeoh.github.io/fb/html/test.html'
 
@@ -64,7 +63,7 @@ function goLink(){
 	url += 'link=' + link + '&'
 	url += 'picture=' + pic + '&'
 	url += 'name=' + encodeURIComponent(appName) + '&'
-	url += 'caption=' + encodeURIComponent(catption) + '&'
+	url += 'caption=' + encodeURIComponent(caption) + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
 	url += 'display=' + display + '&'
 	url += 'redirect_uri=' + link
