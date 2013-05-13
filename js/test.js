@@ -63,11 +63,11 @@ function goLink(){
 
 	url += fburl + '?'
 	url += 'app_id=' + appId + '&'
+	url += 'to=' + to + '&'
 	url += 'link=' + link + '&'
 	url += 'picture=' + pic + '&'
 	url += 'name=' + encodeURIComponent(appName) + '&'
 	url += 'caption=' + encodeURIComponent(caption) + '&'
-	url += 'to=' + to + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
 	//url += 'display=' + display + '&'
 	url += 'redirect_uri=' + link
