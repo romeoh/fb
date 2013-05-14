@@ -60,27 +60,28 @@ function goLink(){
 
 
 	// 로그인
-	/*
+	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
 			FB.api('/me', function(response) {
-				alert(response.name)
+				var body = 'Reading JS SDK documentation';
+				var path = '/me/feed';
+			     
+			     FB.api(path, 'post', { message: body }, function(response) {
+			         if (!response || response.error) {
+			             console.log(response)
+			             alert("error");
+			          } else {
+			             alert("successful with id [" + response.id + "]");
+			          }
+			     });
+				//alert(response.name)
 				//msg.innerHTML = response.name + '님 방가~';
 			});
 		}
 	});
-	*/
-	var body = 'Reading JS SDK documentation';
-	var path = '/me/feed';
-     
-     FB.api(path, 'post', { message: body }, function(response) {
-         if (!response || response.error) {
-             console.log(response)
-             alert("error");
-          } else {
-             alert("successful with id [" + response.id + "]");
-          }
-     });
+	/**/
+	
 
 }
 
