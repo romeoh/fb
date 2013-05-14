@@ -67,11 +67,12 @@ function goLink(){
 	//summary = userName.value + '님 ' + message
 
 	setRandom(dataJogun)
-
+*/
 	
 	
 	
 	// 로그인
+	console.log(postMsg)
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
