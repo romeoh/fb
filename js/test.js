@@ -50,7 +50,7 @@ function goLink(){
 	}
 	
 
-	fburl = 'https://www.facebook.com/dialog/feed'
+	/*fburl = 'https://www.facebook.com/dialog/feed'
 	appId = '374985009279013'
 	link = 'http://romeoh.github.io/fb/html/enter.html'
 	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
@@ -73,6 +73,18 @@ function goLink(){
 	url += 'redirect_uri=' + link
 	
 	top.location.href = url
+	*/
+	
+
+	fburl = 'https://www.facebook.com/sharer/sharer.php'
+	u = 'http://romeoh.github.io/fb/html/test.html'
+	t = 'hello'
+
+	url += fburl + '?'
+	url += 'u=' + encodeURIComponent(u) + '&'
+	url += 't=' + encodeURIComponent(t)
+	top.location.href = url
+
 
 }
 
@@ -187,4 +199,31 @@ dataFemale = [
 	{'name': '류덕환', 'photo': 'm49.jpeg', 'msg':''},
 	{'name': '노민우', 'photo': 'm50.jpg', 'msg':''}
 ]
+
+
+
+
+
+
+/*
+https://www.facebook.com/sharer/sharer.php?
+u=http%3A%2F%2Ffbshare.me%2FaECA&
+t=How+to+Create+a+Custom+Facebook+Share+Button+for+your+iFrame+Tab+%7C+Daddy+Design
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
