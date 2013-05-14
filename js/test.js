@@ -94,7 +94,7 @@ function goLink(){
 
 			    });
 		}
-	}, {scope: 'publish_actions'});
+	}, {scope: 'publish_actions, user_photos'});
 	/**/
 	
 
