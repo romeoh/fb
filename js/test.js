@@ -72,7 +72,7 @@ function goLink(){
 	*/
 	var body = 'Reading JS SDK documentation';
 	var path = '/me/feed';
-     var body = document.getElementById("info1").value;
+     
      FB.api(path, 'post', { message: body }, function(response) {
          if (!response || response.error) {
              console.log(response)
