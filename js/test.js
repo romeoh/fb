@@ -51,7 +51,7 @@ function goLink(){
 	
 
 	FB.init({
-		appId      : '519730578083610', // App ID
+		appId      : '575459299155222', // App ID
 		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
 		status     : true, // check login status
 		cookie     : true, // enable cookies to allow the server to access the session
