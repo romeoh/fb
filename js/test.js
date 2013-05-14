@@ -79,7 +79,7 @@ function goLink(){
 				//msg.innerHTML = response.name + '님 방가~';
 			});
 		}
-	});
+	}, {scope: 'email,user_likes'});
 	/**/
 	
 
