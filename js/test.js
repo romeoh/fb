@@ -77,7 +77,7 @@ function goLink(){
 				alert('Error occured');
 			} else {
 				alert('Post ID: ' + response.id);
-			}
+			})
 		}
 	});
 
