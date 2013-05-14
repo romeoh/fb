@@ -60,16 +60,27 @@ function goLink(){
 
 
 	// 로그인
-	//document.querySelector("#btnLogin").onclick = function(){
-		FB.login(function(response) {
-			if (response.authResponse) {
-				FB.api('/me', function(response) {
-					alert(response.name)
-					//msg.innerHTML = response.name + '님 방가~';
-				});
+	/*
+	FB.login(function(response) {
+		if (response.authResponse) {
+			FB.api('/me', function(response) {
+				alert(response.name)
+				//msg.innerHTML = response.name + '님 방가~';
+			});
+		}
+	});
+	*/
+
+	FB.api('/me/feed', 'post', { message: body }, function(response) {
+		if (!response || response.error) {
+			FB.api('/me', function(response) {
+				alert('Error occured');
+			} else {
+				alert('Post ID: ' + response.id);
 			}
-		});
-	//}
+		}
+	});
+
 }
 
 function getRand(data){
