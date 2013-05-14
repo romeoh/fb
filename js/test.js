@@ -67,6 +67,7 @@ function goLink(){
     }, function (response) {
 
         if (!response || response.error) {
+            console.log(response)
             alert('Error occured:' + response);
         } else {
             alert('Post ID: ' + response.id);
