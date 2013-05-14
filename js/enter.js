@@ -52,10 +52,10 @@ function goLink(){
 
 	fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
-	title = 'myTitle'
-	summary = 'mySummary'
-	urls = 'http://www.url.com'
-	img = 'http://romeoh.github.io/fb/img/f01.jpeg'
+	title = resultName + '씨로부터 메세지'
+	urls = 'http://romeoh.github.io/fb/html/enter.html'
+	img = 'http://romeoh.github.io/fb/img/' + resultPhoto
+	summary = userName.value + '님 ' + message
 
 	url += fburl + '?'
 	url += 's=' + s + '&'
@@ -65,6 +65,34 @@ function goLink(){
 	url += 'p[images][0]=' + encodeURIComponent(img)
 	
 	top.location.href = url
+
+
+	return
+
+
+	fburl = 'https://www.facebook.com/dialog/feed'
+	appId = '575459299155222'
+	link = 'http://romeoh.github.io/fb/html/enter.html'
+	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
+	appName = '커피한잔 하실래요?'
+	caption = resultName + '씨로부터 메세지'
+	description = userName.value + '님 ' + message
+	display = 'touch'
+	//redirect = 'http://romeoh.github.io/fb/html/test.html'
+
+	url += fburl + '?'
+	url += 'app_id=' + appId + '&'
+	url += 'link=' + link + '&'
+	url += 'picture=' + pic + '&'
+	url += 'name=' + encodeURIComponent(appName) + '&'
+	url += 'caption=' + encodeURIComponent(caption) + '&'
+	url += 'description=' + encodeURIComponent(description) + '&'
+	//url += 'display=' + display + '&'
+	url += 'redirect_uri=' + link
+	
+	top.location.href = url
+
+
 
 }
 
