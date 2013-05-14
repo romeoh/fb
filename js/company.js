@@ -50,14 +50,7 @@ function goLink(){
 	setRandom(dataJogun);
 	postMsg += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n';
 	postMsg += '[대우]\n';
-	postMsg += '1. 연봉: ' + dataPay[dataPayIdx] + '\n';
-	postMsg += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n';
-	postMsg += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n';
-	postMsg += '[조건]\n';
-	postMsg += '1. '+dataJogun[jogeun0]+'\n';
-	postMsg += '2. '+dataJogun[jogeun1]+'\n';
-	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
-	postMsg += 'http://goo.gl/QWPHM';
+	
 
 	/*fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
