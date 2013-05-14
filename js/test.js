@@ -64,7 +64,8 @@ function goLink(){
 		FB.login(function(response) {
 			if (response.authResponse) {
 				FB.api('/me', function(response) {
-					msg.innerHTML = response.name + '님 방가~';
+					alert(response.name)
+					//msg.innerHTML = response.name + '님 방가~';
 				});
 			}
 		});
