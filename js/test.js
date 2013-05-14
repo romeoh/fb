@@ -73,11 +73,9 @@ function goLink(){
 
 	FB.api('/me/feed', 'post', { message: body }, function(response) {
 		if (!response || response.error) {
-			FB.api('/me', function(response) {
-				alert('Error occured');
-			} else {
-				alert('Post ID: ' + response.id);
-			})
+			alert('Error occured');
+		} else {
+			alert('Post ID: ' + response.id);
 		}
 	});
 
