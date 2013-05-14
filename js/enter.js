@@ -51,7 +51,7 @@ function goLink(){
 	
 
 	fburl = 'https://www.facebook.com/dialog/feed'
-	appId = '519730578083610'
+	appId = '575459299155222'
 	link = 'http://romeoh.github.io/fb/html/enter.html'
 	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
 	appName = '커피한잔 하실래요?'
