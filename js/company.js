@@ -77,7 +77,7 @@ function goLink(){
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
-			imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg';
+			imgURL = 'http://romeoh.github.io/fb/img/' + dataCompany[companyIdx]['photo'];
 			FB.api('/me/photos', 'post', {
 				message: 'postMsg',
 				//access_token: accessToken, 
