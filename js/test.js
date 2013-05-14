@@ -71,16 +71,39 @@ function goLink(){
 	});
 	*/
 	var body = 'Reading JS SDK documentation';
-	FB.api('/me/feed', 'post', { message: body }, function(response) {
-		if (!response || response.error) {
-			console.log(response)
-			alert('Error occured');
-		} else {
-			alert('Post ID: ' + response.id);
-		}
-	});
+	var path = '/me/feed';
+     var body = document.getElementById("info1").value;
+     FB.api(path, 'post', { message: body }, function(response) {
+         if (!response || response.error) {
+             console.log(response)
+             alert("error");
+          } else {
+             alert("successful with id [" + response.id + "]");
+          }
+     });
 
 }
+
+
+function postPersonalFeed(fbId){
+  FB.getLoginStatus(handleSessionResponse);
+    function handleSessionResponse(response) { 
+      if (!response.session) { 
+         alert("No login");
+      } else{
+         var path = '/me/feed';
+         var body = document.getElementById("info1").value;
+         FB.api(path, 'post', { message: body }, function(response) {
+             if (!response || response.error) {
+                 alert("error");
+              } else {
+                 alert("successful with id [" + response.id + "]");
+              }
+         });
+      }
+   }
+ }
+
 
 function getRand(data){
 	var  dataLength = data.length
