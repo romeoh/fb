@@ -48,7 +48,6 @@ function goLink(){
 		resultPhoto = data['photo']
 		message = '커피한잔 마실래요?';
 	}
-	
 
 	fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
@@ -65,35 +64,6 @@ function goLink(){
 	url += 'p[images][0]=' + encodeURIComponent(img)
 	
 	top.location.href = url
-
-
-	return
-
-
-	fburl = 'https://www.facebook.com/dialog/feed'
-	appId = '575459299155222'
-	link = 'http://romeoh.github.io/fb/html/enter.html'
-	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
-	appName = '커피한잔 하실래요?'
-	caption = resultName + '씨로부터 메세지'
-	description = userName.value + '님 ' + message
-	display = 'touch'
-	//redirect = 'http://romeoh.github.io/fb/html/test.html'
-
-	url += fburl + '?'
-	url += 'app_id=' + appId + '&'
-	url += 'link=' + link + '&'
-	url += 'picture=' + encodeURIComponent(pic) + '&'
-	url += 'name=' + encodeURIComponent(appName) + '&'
-	url += 'caption=' + encodeURIComponent(caption) + '&'
-	url += 'description=' + encodeURIComponent(description) + '&'
-	//url += 'display=' + display + '&'
-	url += 'redirect_uri=' + link
-	
-	top.location.href = url
-
-
-
 }
 
 function getRand(data){
