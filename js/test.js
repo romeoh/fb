@@ -50,50 +50,25 @@ function goLink(){
 	}
 	
 
-	/*fburl = 'https://www.facebook.com/dialog/feed'
-	appId = '374985009279013'
-	link = 'http://romeoh.github.io/fb/html/enter.html'
-	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
-	appName = '커피한잔 하실래요?'
-	caption = resultName + '씨로부터 메세지'
-	to = 'minkeypaek@gmail.com' 
-	description = userName.value + '님 ' + message
-	display = 'touch'
-	//redirect = 'http://romeoh.github.io/fb/html/test.html'
+	FB.init({
+		appId      : '273359882773262', // App ID
+		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+	})
 
-	url += fburl + '?'
-	url += 'app_id=' + appId + '&'
-	url += 'to=' + to + '&'
-	url += 'link=' + link + '&'
-	url += 'picture=' + pic + '&'
-	url += 'name=' + encodeURIComponent(appName) + '&'
-	url += 'caption=' + encodeURIComponent(caption) + '&'
-	url += 'description=' + encodeURIComponent(description) + '&'
-	//url += 'display=' + display + '&'
-	url += 'redirect_uri=' + link
-	
-	top.location.href = url
-	*/
-	
 
-	fburl = 'http://www.facebook.com/sharer.php'
-	s = '100'
-	title = 'myTitle'
-	summary = 'mySummary'
-	urls = 'http://www.url.com'
-	img = 'http://romeoh.github.io/fb/img/f01.jpeg'
-
-	url += fburl + '?'
-	url += 's=' + s + '&'
-	url += 'p[title]=' + encodeURIComponent(title) + '&'
-	url += 'p[summary]=' + encodeURIComponent(summary) + '&'
-	url += 'p[url]=' + encodeURIComponent(urls) + '&'
-	url += 'p[images][0]=' + encodeURIComponent(img)
-	
-	console.log(url)
-	top.location.href = url
-	//window.open(url, 'sharer', 'toolbar=0,status=0,width=548,height=325')
-
+	// 로그인
+	//document.querySelector("#btnLogin").onclick = function(){
+		FB.login(function(response) {
+			if (response.authResponse) {
+				FB.api('/me', function(response) {
+					msg.innerHTML = response.name + '님 방가~';
+				});
+			}
+		});
+	//}
 }
 
 function getRand(data){
