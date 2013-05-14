@@ -53,7 +53,7 @@ function goLink(){
 	fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
 	title = resultName + '씨로부터 메세지'
-	urls = 'http://romeoh.github.io/fb/html/enter.html'
+	urls = 'http://goo.gl/2fl5V'
 	img = 'http://romeoh.github.io/fb/img/' + resultPhoto
 	summary = userName.value + '님 ' + message
 
@@ -83,7 +83,7 @@ function goLink(){
 	url += fburl + '?'
 	url += 'app_id=' + appId + '&'
 	url += 'link=' + link + '&'
-	url += 'picture=' + pic + '&'
+	url += 'picture=' + encodeURIComponent(pic) + '&'
 	url += 'name=' + encodeURIComponent(appName) + '&'
 	url += 'caption=' + encodeURIComponent(caption) + '&'
 	url += 'description=' + encodeURIComponent(description) + '&'
