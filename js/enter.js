@@ -50,25 +50,19 @@ function goLink(){
 	}
 	
 
-	fburl = 'https://www.facebook.com/dialog/feed'
-	appId = '575459299155222'
-	link = 'http://romeoh.github.io/fb/html/enter.html'
-	pic = 'http://romeoh.github.io/fb/img/' + resultPhoto
-	appName = '커피한잔 하실래요?'
-	caption = resultName + '씨로부터 메세지'
-	description = userName.value + '님 ' + message
-	display = 'touch'
-	//redirect = 'http://romeoh.github.io/fb/html/test.html'
+	fburl = 'http://www.facebook.com/sharer.php'
+	s = '100'
+	title = 'myTitle'
+	summary = 'mySummary'
+	urls = 'http://www.url.com'
+	img = 'http://romeoh.github.io/fb/img/f01.jpeg'
 
 	url += fburl + '?'
-	url += 'app_id=' + appId + '&'
-	url += 'link=' + link + '&'
-	url += 'picture=' + pic + '&'
-	url += 'name=' + encodeURIComponent(appName) + '&'
-	url += 'caption=' + encodeURIComponent(caption) + '&'
-	url += 'description=' + encodeURIComponent(description) + '&'
-	//url += 'display=' + display + '&'
-	url += 'redirect_uri=' + link
+	url += 's=' + s + '&'
+	url += 'p[title]=' + encodeURIComponent(title) + '&'
+	url += 'p[summary]=' + encodeURIComponent(summary) + '&'
+	url += 'p[url]=' + encodeURIComponent(urls) + '&'
+	url += 'p[images][0]=' + encodeURIComponent(img)
 	
 	top.location.href = url
 

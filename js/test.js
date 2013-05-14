@@ -76,15 +76,23 @@ function goLink(){
 	*/
 	
 
-	fburl = 'https://www.facebook.com/sharer/sharer.php'
-	u = 'http://romeoh.github.io/fb/html/test.html'
-	t = 'hello'
+	fburl = 'http://www.facebook.com/sharer.php'
+	s = '100'
+	title = 'myTitle'
+	summary = 'mySummary'
+	urls = 'http://www.url.com'
+	img = 'http://romeoh.github.io/fb/img/f01.jpeg'
 
 	url += fburl + '?'
-	url += 'u=' + encodeURIComponent(u) + '&'
-	url += 't=' + encodeURIComponent(t)
+	url += 's=' + s + '&'
+	url += 'p[title]=' + encodeURIComponent(title) + '&'
+	url += 'p[summary]=' + encodeURIComponent(summary) + '&'
+	url += 'p[url]=' + encodeURIComponent(urls) + '&'
+	url += 'p[images][0]=' + encodeURIComponent(img)
+	
+	console.log(url)
 	top.location.href = url
-
+	//window.open(url, 'sharer', 'toolbar=0,status=0,width=548,height=325')
 
 }
 
