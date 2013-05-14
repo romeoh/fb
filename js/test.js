@@ -64,7 +64,7 @@ function goLink(){
 	FB.login(function(response) {
 		if (response.authResponse) {
 			FB.api('/me', function(response) {
-				var body = 'Reading JS SDK documentation';
+				var body = 'Reading JS SDK documentation\nasdf';
 				var path = '/me/feed';
 			     
 			     FB.api(path, 'post', { message: body }, function(response) {
