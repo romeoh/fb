@@ -59,21 +59,7 @@ function goLink(){
 	})
 
 
-	imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
-	FB.api('/me/photos', 'post', {
-        message: 'photo description',
-        //access_token: accessToken, 
-        url: imgURL
-    }, function (response) {
-
-        if (!response || response.error) {
-            console.log(response)
-            alert('Error occured:' + response);
-        } else {
-            alert('Post ID: ' + response.id);
-        }
-
-    });
+	
 	// 로그인
 	/**/
 	FB.login(function(response) {
