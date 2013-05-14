@@ -25,6 +25,7 @@ function goLink(){
 		,dataPayIdx = Math.floor(Math.random() * dataPay.length)
 		,dataAreaIdx = Math.floor(Math.random() * dataArea.length)
 		,dataLevelIdx = Math.floor(Math.random() * dataLevel.length)
+		
 		,postMsg = ''
 		,urlMsg = {
 			title: dataCompany[companyIdx]['name'] + ' 인사팀',
@@ -46,6 +47,17 @@ function goLink(){
 		xfbml      : true  // parse XFBML
 	})
 
+	postMsg += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n';
+	postMsg += '[대우]\n';
+	postMsg += '1. 연봉: ' + dataPay[dataPayIdx] + '\n';
+	postMsg += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n';
+	postMsg += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n';
+	postMsg += '[조건]\n';
+	postMsg += '1. '+dataJogun[jogeun0]+'\n';
+	postMsg += '2. '+dataJogun[jogeun1]+'\n';
+	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
+	postMsg += 'http://goo.gl/QWPHM';
+
 	/*fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
 	title = dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.';
@@ -55,15 +67,7 @@ function goLink(){
 	//summary = userName.value + '님 ' + message
 
 	setRandom(dataJogun)
-	postMsg += '[대우]\n';
-	postMsg += '1. 연봉: ' + dataPay[dataPayIdx] + '\n';
-	postMsg += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n';
-	postMsg += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n';
-	postMsg += '[조건]\n';
-	postMsg += '1. '+dataJogun[jogeun0]+'\n';
-	postMsg += '2. '+dataJogun[jogeun1]+'\n';
-	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
-	postMsg += 'http://goo.gl/QWPHM';*/
+
 	
 	
 	
@@ -71,9 +75,9 @@ function goLink(){
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
-			imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
+			imgURL = 'http://romeoh.github.io/fb/img/' + dataCompany[companyIdx]['photo'];
 			FB.api('/me/photos', 'post', {
-				message: 'photo description',
+				message: postMsg,
 				//access_token: accessToken, 
 				url: imgURL
 			}, function (response) {
