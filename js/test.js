@@ -73,6 +73,7 @@ function goLink(){
 	var body = 'Reading JS SDK documentation';
 	FB.api('/me/feed', 'post', { message: body }, function(response) {
 		if (!response || response.error) {
+			console.log(response)
 			alert('Error occured');
 		} else {
 			alert('Post ID: ' + response.id);
