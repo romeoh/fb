@@ -38,7 +38,15 @@ function goLink(){
 		return false;
 	}
 
-	fburl = 'http://www.facebook.com/sharer.php'
+	FB.init({
+		appId      : '575459299155222', // App ID
+		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+	})
+
+	/*fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
 	title = dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.';
 	//title = resultName + '씨로부터 메세지'
@@ -55,20 +63,30 @@ function goLink(){
 	postMsg += '1. '+dataJogun[jogeun0]+'\n';
 	postMsg += '2. '+dataJogun[jogeun1]+'\n';
 	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
-	postMsg += 'http://goo.gl/QWPHM';
+	postMsg += 'http://goo.gl/QWPHM';*/
 	
 	
+	
+	// 로그인
+	/**/
+	FB.login(function(response) {
+		if (response.authResponse) {
+			imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
+			FB.api('/me/photos', 'post', {
+				message: 'photo description',
+				//access_token: accessToken, 
+				url: imgURL
+			}, function (response) {
 
-	
-
-	url += fburl + '?'
-	url += 's=' + s + '&'
-	url += 'p[title]=' + encodeURIComponent(title) + '&'
-	url += 'p[summary]=' + encodeURIComponent(postMsg) + '&'
-	url += 'p[url]=' + encodeURIComponent(urls) + '&'
-	url += 'p[images][0]=' + encodeURIComponent(img)
-	console.log(url)
-	top.location.href = url
+				if (!response || response.error) {
+					console.log(response)
+					alert('Error occured:' + response);
+				} else {
+					alert('Post ID: ' + response.id);
+				}
+			});
+		}
+	}, {scope: 'user_photos'});	/* publish_actions */
 
 }
 

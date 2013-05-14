@@ -50,6 +50,7 @@ function goLink(){
 	}
 	
 
+
 	FB.init({
 		appId      : '575459299155222', // App ID
 		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
@@ -57,54 +58,30 @@ function goLink(){
 		cookie     : true, // enable cookies to allow the server to access the session
 		xfbml      : true  // parse XFBML
 	})
-
-
 	
 	// 로그인
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
 			imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
-				FB.api('/me/photos', 'post', {
-			        message: 'photo description',
-			        //access_token: accessToken, 
-			        url: imgURL
-			    }, function (response) {
+			FB.api('/me/photos', 'post', {
+				message: 'photo description',
+				//access_token: accessToken, 
+				url: imgURL
+			}, function (response) {
 
-			        if (!response || response.error) {
-			            console.log(response)
-			            alert('Error occured:' + response);
-			        } else {
-			            alert('Post ID: ' + response.id);
-			        }
-
-			    });
+				if (!response || response.error) {
+					console.log(response)
+					alert('Error occured:' + response);
+				} else {
+					alert('Post ID: ' + response.id);
+				}
+			});
 		}
 	}, {scope: 'publish_actions, user_photos'});
-	/**/
-	
-
 }
 
 
-function postPersonalFeed(fbId){
-  FB.getLoginStatus(handleSessionResponse);
-    function handleSessionResponse(response) { 
-      if (!response.session) { 
-         alert("No login");
-      } else{
-         var path = '/me/feed';
-         var body = document.getElementById("info1").value;
-         FB.api(path, 'post', { message: body }, function(response) {
-             if (!response || response.error) {
-                 alert("error");
-              } else {
-                 alert("successful with id [" + response.id + "]");
-              }
-         });
-      }
-   }
- }
 
 
 function getRand(data){
