@@ -58,48 +58,41 @@ function goLink(){
 		xfbml      : true  // parse XFBML
 	})
 
-	FB.login(function(response) {
-		if (response.authResponse) {
-			FB.api('/me', function(response) {
 
 	imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
 	FB.api('/me/photos', 'post', {
+        message: 'photo description',
+        //access_token: accessToken, 
+        url: imgURL
+    }, function (response) {
 
-			message: 'photo description',
-		        //access_token: accessToken, 
-		        url: imgURL
-		    }, function (response) {
+        if (!response || response.error) {
+            console.log(response)
+            alert('Error occured:' + response);
+        } else {
+            alert('Post ID: ' + response.id);
+        }
 
-		        if (!response || response.error) {
-		            console.log(response)
-		            alert('Error occured:' + response);
-		        } else {
-		            alert('Post ID: ' + response.id);
-		        }
-
-		    });
-		}
-	}, {scope: 'publish_actions'});
-        
+    });
 	// 로그인
-	/**
+	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
-			FB.api('/me', function(response) {
-				var body = 'Reading JS SDK documentation\nasdf';
-				var path = '/me/photos';
-			     
-			     FB.api(path, 'post', { message: body }, function(response) {
-			         if (!response || response.error) {
-			             console.log(response)
-			             alert("error");
-			          } else {
-			             alert("successful with id [" + response.id + "]");
-			          }
-			     });
-				//alert(response.name)
-				//msg.innerHTML = response.name + '님 방가~';
-			});
+			imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
+				FB.api('/me/photos', 'post', {
+			        message: 'photo description',
+			        //access_token: accessToken, 
+			        url: imgURL
+			    }, function (response) {
+
+			        if (!response || response.error) {
+			            console.log(response)
+			            alert('Error occured:' + response);
+			        } else {
+			            alert('Post ID: ' + response.id);
+			        }
+
+			    });
 		}
 	}, {scope: 'publish_actions'});
 	/**/
