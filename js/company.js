@@ -57,20 +57,8 @@ function goLink(){
 	postMsg += '1. '+dataJogun[jogeun0]+'\n';
 	postMsg += '2. '+dataJogun[jogeun1]+'\n';
 	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
-	postMsg += 'http://goo.gl/QWPHM';
+	postMsg += 'http://goo.gl/9Moc3';
 
-	/*fburl = 'http://www.facebook.com/sharer.php'
-	s = '100'
-	title = dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.';
-	//title = resultName + '씨로부터 메세지'
-	urls = 'http://goo.gl/2fl5V'
-	img = 'http://romeoh.github.io/fb/img/' + resultPhoto
-	//summary = userName.value + '님 ' + message
-
-	
-*/
-	
-	
 	
 	// 로그인
 	console.log(postMsg, dataCompany[companyIdx]['photo'])
@@ -85,14 +73,14 @@ function goLink(){
 			}, function (response) {
 
 				if (!response || response.error) {
-					console.log(response)
-					alert('Error occured:' + response);
+					//console.log(response)
+					//alert('Error occured:' + response);
 				} else {
-					alert('Post ID: ' + response.id);
+					alert('항상 행운을 빌어요~^^');
 				}
 			});
 		}
-	}, {scope: 'publish_actions, user_photos'});	/* publish_actions */
+	}, {scope: 'publish_actions, user_photos'});
 
 }
 
