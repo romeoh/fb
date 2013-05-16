@@ -22,6 +22,7 @@ function goLink(){
 	var  sexType
 		,data
 		,url = ''
+		,postMsg = ''
 
 	//idx < 10 ? idx = '0' + idx : idx
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
@@ -48,6 +49,12 @@ function goLink(){
 		resultPhoto = data['photo']
 		message = '커피한잔 마실래요?';
 	}
+	
+	
+	postMsg += '[' + resultName + '씨로부터 메세지]\n\n';
+	postMsg += userName.value + '님 ' + message + '\n\n';
+	postMsg += 'http://goo.gl/2fl5V';
+	console.log(postMsg, resultPhoto)
 
 	FB.init({
 		appId      : '575459299155222', // App ID
@@ -57,14 +64,8 @@ function goLink(){
 		xfbml      : true  // parse XFBML
 	})
 	
-	setRandom(dataJogun);
-	postMsg += '[' + resultName + '씨로부터 메세지]\n\n';
-	postMsg += userName.value + '님 ' + message + '\n\n';
-	postMsg += 'http://goo.gl/9Moc3';
-
-	
 	// 로그인
-	console.log(postMsg, dataCompany[companyIdx]['photo'])
+	
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
@@ -84,24 +85,6 @@ function goLink(){
 			});
 		}
 	}, {scope: 'publish_actions, user_photos'});
-
-
-	return;
-	fburl = 'http://www.facebook.com/sharer.php'
-	s = '100'
-	title = resultName + '씨로부터 메세지'
-	urls = 'http://goo.gl/2fl5V'
-	img = 'http://romeoh.github.io/fb/img/' + resultPhoto
-	summary = userName.value + '님 ' + message
-
-	url += fburl + '?'
-	url += 's=' + s + '&'
-	url += 'p[title]=' + encodeURIComponent(title) + '&'
-	url += 'p[summary]=' + encodeURIComponent(summary) + '&'
-	url += 'p[url]=' + encodeURIComponent(urls) + '&'
-	url += 'p[images][0]=' + encodeURIComponent(img)
-	
-	top.location.href = url
 }
 
 function getRand(data){
