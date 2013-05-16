@@ -1,4 +1,4 @@
-var  userName = document.querySelector('#userName')
+var  userName
 	,boy = document.getElementById('boy')
 	,girl = document.getElementById('girl')
 	,boySelect = document.querySelector('#boyBox a')
@@ -25,14 +25,7 @@ function goLink(){
 		,dataPayIdx = Math.floor(Math.random() * dataPay.length)
 		,dataAreaIdx = Math.floor(Math.random() * dataArea.length)
 		,dataLevelIdx = Math.floor(Math.random() * dataLevel.length)
-		
 		,postMsg = ''
-		/*,urlMsg = {
-			title: dataCompany[companyIdx]['name'] + ' 인사팀',
-			desc: dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 스카웃 하려 합니다.',
-			imageurl: ['http://romeoh.github.io/kakaoStory/imgCom/' + dataCompany[companyIdx]['photo']],
-			type:'article'
-		}*/
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
