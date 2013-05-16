@@ -49,6 +49,44 @@ function goLink(){
 		message = '커피한잔 마실래요?';
 	}
 
+	FB.init({
+		appId      : '575459299155222', // App ID
+		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+	})
+	
+	setRandom(dataJogun);
+	postMsg += '[' + resultName + '씨로부터 메세지]\n\n';
+	postMsg += userName.value + '님 ' + message + '\n\n';
+	postMsg += 'http://goo.gl/9Moc3';
+
+	
+	// 로그인
+	console.log(postMsg, dataCompany[companyIdx]['photo'])
+	/**/
+	FB.login(function(response) {
+		if (response.authResponse) {
+			imgURL = 'http://romeoh.github.io/fb/img/' + resultPhoto;
+			FB.api('/me/photos', 'post', {
+				message: postMsg,
+				//access_token: accessToken, 
+				url: imgURL
+			}, function (response) {
+
+				if (!response || response.error) {
+					//console.log(response)
+					//alert('Error occured:' + response);
+				} else {
+					alert('항상 행운을 빌어요~^^');
+				}
+			});
+		}
+	}, {scope: 'publish_actions, user_photos'});
+
+
+	return;
 	fburl = 'http://www.facebook.com/sharer.php'
 	s = '100'
 	title = resultName + '씨로부터 메세지'
