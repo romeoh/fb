@@ -13,7 +13,7 @@ function initPage(){
 	btnFb.addEventListener('click', goLink, false);
 }
 
-//  카카오 스토리
+// 페북으로 확인
 function goLink(){
 	var  userName = document.querySelector('#userName').value
 		,resultName, resultPhoto, resultMsg
