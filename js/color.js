@@ -102,7 +102,7 @@ function goLink(){
 	postMsg += '[색깔로 알아보는 심리테스트]\n\n';
 	postMsg += '나는 ' + data.color + '을 좋아하는\n';
 	postMsg += data.result + '입니다.\n\n';
-
+	postMsg += 'http://goo.gl/IXlQq \n';
 	
 	// 로그인
 	console.log(postMsg)
