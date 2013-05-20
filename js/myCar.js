@@ -35,7 +35,7 @@ function goLink(){
 	
 	postMsg += '[3년뒤 마이카 알아보기]\n';
 	postMsg += '3년뒤 ' + userName + '님의 차는 ' + data[dataRan]['car'] + '입니다.\n\n';
-	postMsg += 'http://goo.gl/Vbd2u\n';
+	postMsg += 'http://goo.gl/uSyy0\n';
 
 	
 	// 로그인
@@ -47,7 +47,6 @@ function goLink(){
 			imgURL = 'http://romeoh.github.io/fb/img/' + data[dataRan]['photo'];
 			FB.api('/me/photos', 'post', {
 				message: postMsg,
-				//access_token: accessToken, 
 				url: imgURL
 			}, function (response) {
 
@@ -55,49 +54,12 @@ function goLink(){
 					//console.log(response)
 					//alert('Error occured:' + response);
 				} else {
-					alert('항상 행운을 빌어요~^^');
+					//alert('항상 행운을 빌어요~^^');
 				}
 			});
 		}
 	}, {scope: 'publish_actions, user_photos'});
-
-return
-
-
-
-	postMsg += '[3년뒤 마이카]\n';
-	postMsg += '3년뒤 ' + userName + '님의 차는 ' + data[dataRan]['car'] + '입니다.\n\n';
-	postMsg += 'http://goo.gl/Vbd2u\n';
-
-	urlMsg = {
-		title: '3년뒤 마이카',
-		desc: data[dataRan]['car'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '3년뒤 마이카',
-		urlinfo : JSON.stringify(urlMsg)
-    });
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "3년뒤 마이카",
-		url: "http://goo.gl/Vbd2u",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "3년뒤 마이카",
-		type: "link"
-	});
-}
-
 
 data = [
 	{'photo': 'car0.jpg',  'car': 'SM5 TCE'},
