@@ -69,7 +69,7 @@ function goLink(){
 					//console.log(response)
 					//alert('Error occured:' + response);
 				} else {
-					alert('항상 행운을 빌어요~^^');
+					//alert('항상 행운을 빌어요~^^');
 				}
 			});
 		}

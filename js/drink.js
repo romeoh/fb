@@ -41,7 +41,7 @@ function goLink(){
 	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
 	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
 	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
-	postMsg += 'http://goo.gl/BCCnn';
+	postMsg += 'http://goo.gl/EGkEK';
 
 	
 	// 로그인
@@ -60,7 +60,7 @@ function goLink(){
 					//console.log(response)
 					//alert('Error occured:' + response);
 				} else {
-					alert('항상 행운을 빌어요~^^');
+					//alert('항상 행운을 빌어요~^^');
 				}
 			});
 		}
