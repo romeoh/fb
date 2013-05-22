@@ -101,6 +101,7 @@ function randomRange(min, max) {
 
 
 dataWord = [
+	'페이스뒷북',
 	'볼이트니스킨발라',
 	'난방고양이',
 	'오즈의맙소사',
