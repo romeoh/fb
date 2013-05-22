@@ -41,7 +41,7 @@ function goLink(){
 	postMsg += '3위: ' + dataWord[settleData[2]] + ' (' + matchRate2 + '%)\n';
 	postMsg += '4위: ' + dataWord[settleData[3]] + ' (' + matchRate3 + '%)\n';
 	postMsg += '5위: ' + dataWord[settleData[4]] + ' (' + matchRate4 + '%)\n\n';
-	postMsg += 'http://goo.gl/nzwC5';
+	postMsg += 'http://goo.gl/kVaHZ';
 
 	
 	// 로그인
@@ -49,7 +49,7 @@ function goLink(){
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
-			imgURL = 'http://romeoh.github.io/fb/img/' + dataDrink[dataDrinkRan]['photo'];
+			imgURL = 'http://romeoh.github.io/fb/img/dog.jpg';
 			FB.api('/me/photos', 'post', {
 				message: postMsg,
 				//access_token: accessToken, 
