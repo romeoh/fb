@@ -289,11 +289,11 @@ function goLink(){
 	/**/
 	FB.login(function(response) {
 		if (response.authResponse) {
-			imgURL = 'http://romeoh.github.io/fb/img/' + winner.photo;
-			FB.api('/me/photos', 'post', {
+			FB.api('/me/feed', 'post', {
 				message: postMsg,
+				picture: 'http://romeoh.github.io/fb/img/' + winner.photo
 				//access_token: accessToken, 
-				url: imgURL
+				//url: imgURL
 			}, function (response) {
 
 				if (!response || response.error) {
