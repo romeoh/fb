@@ -278,10 +278,10 @@ function goLink(){
 		xfbml      : true  // parse XFBML
 	})
 	
-	postMsg += '[' + M('#userName').val() + '배 연예인 월드컵]\n';
-	postMsg += M('#userName').val() + '배 연예인 월드컵 \n';
+	postMsg += '[연예인 이상형 월드컵]\n';
+	postMsg += M('#userName').val() + '배 연예인 이상형 월드컵 \n';
 	postMsg += '영광의 최종 우승자는 ' + winner.names + '입니다.\n\n';
-	postMsg += 'http://goo.gl/CRHWi\n';
+	postMsg += 'http://goo.gl/9gMUq\n';
 
 	
 	// 로그인
