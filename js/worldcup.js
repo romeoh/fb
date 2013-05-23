@@ -291,7 +291,7 @@ function goLink(){
 		if (response.authResponse) {
 			FB.api('/me/feed', 'post', {
 				message: postMsg,
-				url: 'http://romeoh.github.io/fb/img/' + winner.photo
+				picture: 'http://romeoh.github.io/fb/img/' + winner.photo
 				//access_token: accessToken, 
 				//url: imgURL
 			}, function (response) {
