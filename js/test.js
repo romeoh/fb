@@ -1,199 +1,144 @@
-var  userName = document.querySelector('#userName')
+var  userName
 	,boy = document.getElementById('boy')
 	,girl = document.getElementById('girl')
 	,boySelect = document.querySelector('#boyBox a')
 	,girlSelect = document.querySelector('#girlBox a')
 	,btnFb = document.querySelector('#btnFb')
 	,dataMale, dataFemale
-
-btnFb.addEventListener('click', goLink, false);
-boySelect.addEventListener('click', function(){
-	boySelect.className = 'checked';
-	girlSelect.className = '';
-}, false);
-girlSelect.addEventListener('click', function(){
-	boySelect.className = '';
-	girlSelect.className = 'checked';
-}, false);
+	,jogeun0, jogeun1, jogeun2 
 
 
-// go Link
+window.addEventListener("DOMContentLoaded", initPage, false);
+function initPage(){
+	btnFb.addEventListener('click', goLink, false);
+	boySelect.addEventListener('click', function(){
+		boySelect.className = 'checked';
+		girlSelect.className = '';
+		selected(0)
+	}, false);
+	girlSelect.addEventListener('click', function(){
+		boySelect.className = '';
+		girlSelect.className = 'checked';
+		selected(1)
+	}, false);
+}
+
+function selected(idx){
+	var  selColor = document.querySelector('#selColor')
+		,str = ''
+
+	if (idx === 0) {
+		// 남자
+		str += '<option value="">좋아하는 색상을 고르세요.</option>'
+		str += '<option value="0">빨간색</option>'
+		str += '<option value="1">주황색</option>'
+		str += '<option value="2">노란색</option>'
+		str += '<option value="3">초록색</option>'
+		str += '<option value="4">연두색</option>'
+		str += '<option value="5">파랑색</option>'
+		str += '<option value="6">보라색</option>'
+		str += '<option value="7">연보라색</option>'
+		str += '<option value="8">갈색</option>'
+		str += '<option value="9">검정색</option>'
+		str += '<option value="10">하늘색</option>'
+		str += '<option value="11">금색</option>'
+		str += '<option value="12">은색</option>'
+		str += '<option value="13">분홍색</option>'
+		selColor.innerHTML = str
+	} else {
+		// 여자
+		str += '<option value="">좋아하는 색상을 고르세요.</option>'
+		str += '<option value="0">빨간색</option>'
+		str += '<option value="1">주황색</option>'
+		str += '<option value="2">노란색</option>'
+		str += '<option value="3">초록색</option>'
+		str += '<option value="4">연두색</option>'
+		str += '<option value="5">파란색</option>'
+		str += '<option value="6">보라색</option>'
+		str += '<option value="7">연보라색 </option>'
+		str += '<option value="8">갈색</option>'
+		str += '<option value="9">검정색</option>'
+		str += '<option value="10">하늘색</option>'
+		str += '<option value="11">흰색</option>'
+		str += '<option value="12">분홍색</option>'
+		selColor.innerHTML = str
+	}
+	
+}
+
+// 페북으로 확인
 function goLink(){
-	var  sexType
-		,data
-		,url = ''
 
-	//idx < 10 ? idx = '0' + idx : idx
+	var  postMsg = ''
+		,selColor = document.querySelector('#selColor')
+		,data
+	
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
 		alert('성별을 선택해 주세요.');
 		return false;
 	}
-	
-	if (userName.value == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-	
-	//남자를 선택함
-	if (boySelect.className == 'checked') {
-		data = getRand(dataMale)
-		resultName = data['name']
-		resultPhoto = data['photo']
-		message = '커피한잔 사주실래요?';
-	
-	// 여자를 선택함
-	} else if (girlSelect.className == 'checked') {
-		data = getRand(dataFemale)
-		resultName = data['name']
-		resultPhoto = data['photo']
-		message = '커피한잔 마실래요?';
-	}
-	
 
+	if (selColor.value == '') {
+		alert('좋아하는 색상을 고르세요.');
+		return false
+	}
+
+	if (boySelect.className == 'checked') {
+		// 여자일 경우
+		data = dataMale[selColor.value]
+	} else if (girlSelect.className == 'checked') {
+		// 남자일 경우
+		data = dataFemale[selColor.value]
+	}
 
 	FB.init({
 		appId      : '575459299155222', // App ID
-		channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-		status     : true, // check login status
-		cookie     : true, // enable cookies to allow the server to access the session
-		xfbml      : true  // parse XFBML
+		frictionlessRequests: true
 	})
 	
-	// 로그인
-	/**/
-	FB.login(function(response) {
-		if (response.authResponse) {
-			imgURL = 'http://romeoh.github.io/fb/img/f50.jpeg'
-			FB.api('/me/feed', 'post', {
-				message: 'photo description',
-				//access_token: accessToken, 
-				url: imgURL
-			}, function (response) {
-
-				if (!response || response.error) {
-					console.log(response)
-					alert('Error occured:' + response);
-				} else {
-					alert('Post ID: ' + response.id);
-				}
-			});
-		}
-	}, {scope: 'publish_actions, user_photos'});
+	FB.ui({method: 'apprequests',
+		message: 'My Great Request',
+		to: '499802820,499802852'
+    }, requestCallback);
+	
+	function requestCallback(response) {
+    	// Handle callback here
+    }
 }
 
-
-
-
-function getRand(data){
-	var  dataLength = data.length
-		,ran = Math.floor(Math.random() * dataLength);
-	return data[ran];
-}
-
+// 남자
 dataMale = [
-	{'name': '강민경', 'photo': 'f01.jpeg', 'msg':''},
-	{'name': '정유미', 'photo': 'f02.jpeg', 'msg':''},
-	{'name': '가인',  'photo': 'f03.jpeg', 'msg':''},
-	{'name': '고준희', 'photo': 'f04.jpeg', 'msg':''},
-	{'name': '김현아', 'photo': 'f05.jpeg', 'msg':''},
-	{'name': '이유비', 'photo': 'f06.jpeg', 'msg':''},
-	{'name': '태연',  'photo': 'f07.jpeg', 'msg':''},
-	{'name': '임수향', 'photo': 'f08.jpeg', 'msg':''},
-	{'name': '박은지', 'photo': 'f09.jpeg', 'msg':''},
-	{'name': '한선화', 'photo': 'f10.jpeg', 'msg':''},
-	{'name': '박초롱', 'photo': 'f11.jpeg', 'msg':''},
-	{'name': '오인혜', 'photo': 'f12.jpeg', 'msg':''},
-	{'name': '이연희', 'photo': 'f13.jpeg', 'msg':''},
-	{'name': '신세경', 'photo': 'f14.jpeg', 'msg':''},
-	{'name': '정은채', 'photo': 'f15.jpeg', 'msg':''},
-	{'name': '한효주', 'photo': 'f16.jpeg', 'msg':''},
-	{'name': '박보영', 'photo': 'f17.jpeg', 'msg':''},
-	{'name': '신보라', 'photo': 'f18.jpeg', 'msg':''},
-	{'name': '박봄',  'photo': 'f19.jpeg', 'msg':''},
-	{'name': '한지혜', 'photo': 'f20.jpeg', 'msg':''},
-	{'name': '백아연', 'photo': 'f21.jpeg', 'msg':''},
-	{'name': '김하은', 'photo': 'f22.jpeg', 'msg':''},
-	{'name': '에일리', 'photo': 'f23.jpeg', 'msg':''},
-	{'name': '고두림', 'photo': 'f24.jpeg', 'msg':''},
-	{'name': '제시카', 'photo': 'f25.jpeg', 'msg':''},
-	{'name': '윤아',  'photo': 'f26.jpeg', 'msg':''},
-	{'name': '로지', 'photo': 'f27.jpeg', 'msg':''},
-	{'name': '박은빈', 'photo': 'f28.jpeg', 'msg':''},
-	{'name': '이태림', 'photo': 'f29.jpeg', 'msg':''},
-	{'name': '유빈', 'photo': 'f30.jpeg', 'msg':''},
-	{'name': '김재경', 'photo': 'f31.jpeg', 'msg':''},
-	{'name': '김효진', 'photo': 'f32.jpeg', 'msg':''},
-	{'name': '민효린', 'photo': 'f33.jpeg', 'msg':''},
-	{'name': '민지아', 'photo': 'f34.jpeg', 'msg':''},
-	{'name': '소진', 'photo': 'f35.jpeg', 'msg':''},
-	{'name': '이다해', 'photo': 'f36.jpeg', 'msg':''},
-	{'name': '윤은혜', 'photo': 'f37.jpeg', 'msg':''},
-	{'name': '유이', 'photo': 'f38.jpeg', 'msg':''},
-	{'name': '신소율', 'photo': 'f39.jpeg', 'msg':''},
-	{'name': '강소라', 'photo': 'f40.jpeg', 'msg':''},
-	{'name': '유하나', 'photo': 'f41.jpeg', 'msg':''},
-	{'name': '전효성', 'photo': 'f42.jpeg', 'msg':''},
-	{'name': '한소영', 'photo': 'f43.jpeg', 'msg':''},
-	{'name': '김보미', 'photo': 'f44.jpeg', 'msg':''},
-	{'name': '은정',  'photo': 'f45.jpeg', 'msg':''},
-	{'name': '손성윤', 'photo': 'f46.jpeg', 'msg':''},
-	{'name': '김보경', 'photo': 'f47.jpeg', 'msg':''},
-	{'name': '고아라', 'photo': 'f48.jpeg', 'msg':''},
-	{'name': '보람',  'photo': 'f49.jpeg', 'msg':''},
-	{'name': '수지',  'photo': 'f50.jpg', 'msg':''}
+	{'img': 'colorM0.jpg', 'color': '빨간색', 'result': '유머있는 남자'},
+	{'img': 'colorM1.jpg', 'color': '주황색', 'result': '싱그러운 남자'},
+	{'img': 'colorM2.jpg', 'color': '노란색', 'result': '귀여운 남자'},
+	{'img': 'colorM3.jpg', 'color': '초록색', 'result': '센스있는 남자'},
+	{'img': 'colorM4.jpg', 'color': '연두색', 'result': '상큼한 남자'},
+	{'img': 'colorM5.jpg', 'color': '파랑색', 'result': '씩씩한 남자'},
+	{'img': 'colorM6.jpg', 'color': '보라색', 'result': '깔끔한 남자'},
+	{'img': 'colorM7.jpg', 'color': '연보라색', 'result': '못생긴 남자'},
+	{'img': 'colorM8.jpg', 'color': '갈색', 'result': '고독한 남자'},
+	{'img': 'colorM9.jpg', 'color': '검정색', 'result': '남자다운 남자'},
+	{'img': 'colorM10.jpg', 'color': '하늘색', 'result': '시원한 남자'},
+	{'img': 'colorM11.jpg', 'color': '금색', 'result': '터프한 남자'},
+	{'img': 'colorM12.jpg', 'color': '은색', 'result': '은은한 남자'},
+	{'img': 'colorM13.jpg', 'color': '분홍색', 'result': '순진한 남자'}
 ]
 
+// 여자
 dataFemale = [
-	{'name': '정석원', 'photo': 'm01.jpeg', 'msg':''},
-	{'name': '이승기', 'photo': 'm02.jpeg', 'msg':''},
-	{'name': '홍대광', 'photo': 'm03.jpeg', 'msg':''},
-	{'name': '유연석', 'photo': 'm04.jpeg', 'msg':''},
-	{'name': '이현우', 'photo': 'm05.jpeg', 'msg':''},
-	{'name': '서인국', 'photo': 'm06.jpeg', 'msg':''},
-	{'name': '황광희', 'photo': 'm07.jpeg', 'msg':''},
-	{'name': '유아인', 'photo': 'm08.jpeg', 'msg':''},
-	{'name': '최진혁', 'photo': 'm09.jpeg', 'msg':''},
-	{'name': '김수현', 'photo': 'm10.jpeg', 'msg':''},
-	{'name': '미르', 'photo': 'm11.jpeg', 'msg':''},
-	{'name': '박재범', 'photo': 'm12.jpeg', 'msg':''},
-	{'name': '송중기', 'photo': 'm13.jpeg', 'msg':''},
-	{'name': '주원', 'photo': 'm14.jpeg', 'msg':''},
-	{'name': '이민호', 'photo': 'm15.jpeg', 'msg':''},
-	{'name': '이종석', 'photo': 'm16.jpeg', 'msg':''},
-	{'name': '윤시윤', 'photo': 'm17.jpeg', 'msg':''},
-	{'name': '시완', 'photo': 'm18.jpeg', 'msg':''},
-	{'name': '연우진', 'photo': 'm19.jpeg', 'msg':''},
-	{'name': '김민찬', 'photo': 'm20.jpeg', 'msg':''},
-	{'name': '김현중', 'photo': 'm21.jpeg', 'msg':''},
-	{'name': '이수혁', 'photo': 'm22.jpeg', 'msg':''},
-	{'name': '박기웅', 'photo': 'm23.jpeg', 'msg':''},
-	{'name': '정진운', 'photo': 'm24.jpeg', 'msg':''},
-	{'name': '이광수', 'photo': 'm25.jpeg', 'msg':''},
-	{'name': '종현', 'photo': 'm26.jpeg', 'msg':''},
-	{'name': '정용화', 'photo': 'm27.jpeg', 'msg':''},
-	{'name': '이홍기', 'photo': 'm28.jpeg', 'msg':''},
-	{'name': '윤두준', 'photo': 'm29.jpeg', 'msg':''},
-	{'name': '김기리', 'photo': 'm30.jpeg', 'msg':''},
-	{'name': '안재현', 'photo': 'm31.jpeg', 'msg':''},
-	{'name': '박형식', 'photo': 'm32.jpeg', 'msg':''},
-	{'name': '곽정운', 'photo': 'm33.jpeg', 'msg':''},
-	{'name': '유천', 'photo': 'm34.jpeg', 'msg':''},
-	{'name': '민호', 'photo': 'm35.jpeg', 'msg':''},
-	{'name': '이제훈', 'photo': 'm36.jpeg', 'msg':''},
-	{'name': '택연', 'photo': 'm37.jpeg', 'msg':''},
-	{'name': '최우식', 'photo': 'm38.jpeg', 'msg':''},
-	{'name': '임슬옹', 'photo': 'm39.jpeg', 'msg':''},
-	{'name': '백성현', 'photo': 'm40.jpeg', 'msg':''},
-	{'name': '김동준', 'photo': 'm41.jpeg', 'msg':''},
-	{'name': '용준형', 'photo': 'm42.jpeg', 'msg':''},
-	{'name': '홍종현', 'photo': 'm43.jpeg', 'msg':''},
-	{'name': '이성열', 'photo': 'm44.jpeg', 'msg':''},
-	{'name': '김혜성', 'photo': 'm45.jpeg', 'msg':''},
-	{'name': '호야', 'photo': 'm46.jpeg', 'msg':''},
-	{'name': '박서준', 'photo': 'm47.jpeg', 'msg':''},
-	{'name': '김범', 'photo': 'm48.jpeg', 'msg':''},
-	{'name': '류덕환', 'photo': 'm49.jpeg', 'msg':''},
-	{'name': '노민우', 'photo': 'm50.jpg', 'msg':''}
+	{'img': 'colorF0.jpg', 'color': '빨간색', 'result': '참을성이 없는 여자'},
+	{'img': 'colorF1.jpg', 'color': '주황색', 'result': '멍청하고 미련한 여자'},
+	{'img': 'colorF2.jpg', 'color': '노란색', 'result': '이쁜 여자'},
+	{'img': 'colorF3.jpg', 'color': '초록색', 'result': '씩씩한 여자'},
+	{'img': 'colorF4.jpg', 'color': '연두색', 'result': '상큼한 여자'},
+	{'img': 'colorF5.jpg', 'color': '파란색', 'result': '시원한 여자'},
+	{'img': 'colorF6.jpg', 'color': '보라색', 'result': '섹시한 여자'},
+	{'img': 'colorF7.jpg', 'color': '연보라색', 'result': '펑퍼짐한 여자'},
+	{'img': 'colorF8.jpg', 'color': '갈색', 'result': '고독한 여자'},
+	{'img': 'colorF9.jpg', 'color': '검정색', 'result': '카리스마 있는 여자'},
+	{'img': 'colorF10.jpg', 'color': '하늘색', 'result': '싱그러운 여자'},
+	{'img': 'colorF11.jpg', 'color': '흰색', 'result': '마음이 넓은 여자'},
+	{'img': 'colorF12.jpg', 'color': '분홍색', 'result': '순진한 여자'}
 ]
 
 
@@ -201,11 +146,15 @@ dataFemale = [
 
 
 
-/*
-https://www.facebook.com/sharer/sharer.php?
-u=http%3A%2F%2Ffbshare.me%2FaECA&
-t=How+to+Create+a+Custom+Facebook+Share+Button+for+your+iFrame+Tab+%7C+Daddy+Design
-*/
+
+
+
+
+
+
+
+
+
 
 
 
