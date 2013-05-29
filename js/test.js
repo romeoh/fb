@@ -73,15 +73,6 @@ function goLink(){
 		,selColor = document.querySelector('#selColor')
 		,data
 	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
-
-	if (selColor.value == '') {
-		alert('좋아하는 색상을 고르세요.');
-		return false
-	}
 
 	if (boySelect.className == 'checked') {
 		// 여자일 경우
